@@ -8,7 +8,8 @@
 function makeArray(firstArray, secondArray, maxLength) {
   const joinedArray = firstArray.concat(secondArray);
   return joinedArray.length > maxLength
-    ? ((joinedArray.length = maxLength) && joinedArray) || []
+    ? ((joinedArray.length = maxLength) && joinedArray) ||
+        joinedArray.splice(maxLength)
     : joinedArray;
 }
 
