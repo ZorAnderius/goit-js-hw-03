@@ -6,19 +6,10 @@
  * @returns {Array}
  */
 function makeArray(firstArray, secondArray, maxLength) {
-  const joinedArray = [];
-  if (!maxLength) {
-    return joinedArray;
-  }
-
-  if (firstArray.length >= maxLength) {
-    return joinedArray.concat(firstArray.slice(0, maxLength));
-  } else if (firstArray.length < maxLength) {
-    return joinedArray.concat(
-      firstArray,
-      secondArray.slice(0, maxLength - firstArray.length)
-    );
-  }
+  const joinedArray = firstArray.concat(secondArray);
+  return joinedArray.length > maxLength
+    ? ((joinedArray.length = maxLength) && joinedArray) || []
+    : joinedArray;
 }
 
 console.log('-------------------------------------------------------------');
